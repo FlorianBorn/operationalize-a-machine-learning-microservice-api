@@ -11,7 +11,7 @@ COPY app.py /udacity/
 ## Step 3:
 # Install packages from requirements.txt
 # hadolint ignore=DL3013
-RUN pip -r /udacity/requirements.txt
+RUN pip install -r /udacity/requirements.txt
 
 ## Step 4:
 # Expose port 80
