@@ -6,13 +6,17 @@ RUN mkdir -p /udacity/
 
 ## Step 2:
 # Copy source code to working directory
-COPY . /udacity/
+COPY requirements.txt /udacity/
 WORKDIR /udacity
 
 ## Step 3:
 # Install packages from requirements.txt
 # hadolint ignore=DL3013
 RUN pip install -r requirements.txt
+
+# COPY source app-files here to avoid invalidating the cache when a file is changed
+COPY app.py /udacity/
+COPY /model_data/boston_housing_prediction.joblib /udacity/model_data/boston_housing_prediction.joblib
 
 ## Step 4:
 # Expose port 80
@@ -22,4 +26,4 @@ EXPOSE 80
 
 ## Step 5:
 # Run app.py at container launch
-RUN python3 app.py
+ENTRYPOINT ["python3", "app.py"]
