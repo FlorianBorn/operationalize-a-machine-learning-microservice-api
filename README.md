@@ -1,4 +1,5 @@
-<include a CircleCI status badge, here>
+[![FlorianBorn](https://circleci.com/gh/FlorianBorn/operationalize-a-machine-learning-microservice-api
+.svg?style=svg)](https://app.circleci.com/github/FlorianBorn/operationalize-a-machine-learning-microservice-api/pipelines)
 
 ## Project Overview
 
