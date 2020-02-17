@@ -1,5 +1,7 @@
 [![FlorianBorn](https://circleci.com/gh/FlorianBorn/operationalize-a-machine-learning-microservice-api
-.svg?style=svg)](https://app.circleci.com/github/FlorianBorn/operationalize-a-machine-learning-microservice-api/pipelines)
+.svg?style=svg)](https://app.circleci.com/gh/FlorianBorn/operationalize-a-machine-learning-microservice-api/pipelines)
+
+[![CircleCI](https://circleci.com/gh/circleci/circleci-docs.svg?style=svg)](https://circleci.com/gh/circleci/circleci-docs)
 
 ## Project Overview
 
