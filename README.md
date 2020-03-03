@@ -24,9 +24,12 @@ For this, the following steps are performed:
 **run_kubernetes.sh**: deploy the app (image) on kubernetes<br>
 **upload_docker.sh**: push the Docker Image to Docker Hub<br>
 
+## Setup the Base Environment
+1. Install VMware
+2. Create a VM with Ubuntu 18.04
+3. in the VM's settings activate **Virtualize Intel VT-x/EPT or AMD-V/RVI**
+
 ## Setup the Environment
-
-
 
 * Create a virtualenv and activate it
 * Run `make install` to install the necessary dependencies
@@ -39,7 +42,7 @@ For this, the following steps are performed:
 
 ### Kubernetes Steps
 
-1. Setup and Configure Docker locally
+1. Setup and Configure Docker locally<br>
 `apt install docker.io`<br>
 2. Setup and Configure Kubernetes locally
 * Install kubctl<br>
@@ -66,7 +69,11 @@ For this, the following steps are performed:
     minikube status
 ```
 3. Create Flask app in Container
-
-
-* Create Flask app in Container
-* Run via kubectl
+```
+    ./run_docker.sh
+    ./upload_docker.sh
+```
+4. Run via kubectl
+```
+    ./run_kubernetes.sh
+``` 
