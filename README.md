@@ -16,13 +16,20 @@ For this, the following steps are performed:
 ---
 
 ### Files
-Dockerfile: a template for creating the Docker Image (containing the web service)
-Makefile: Contains the neccessary commands to setup the environment, install requirements, make tests and lint the project's files
-make_predictions.sh: use curl to make a dummy call to the app
-requirements.txt: contains all required python libraries
-run_docker.sh: build and run the image containing the app
-run_kubernetes.sh: deploy the app (image) on kubernetes
-upload_docker.sh: push the Docker Image to Docker Hub
+Dockerfile
+: a template for creating the Docker Image (containing the web service)
+Makefile
+: Contains the neccessary commands to setup the environment, install requirements, make tests and lint the project's files
+make_predictions.sh
+: use curl to make a dummy call to the app
+requirements.txt
+: contains all required python libraries
+run_docker.sh
+: build and run the image containing the app
+run_kubernetes.sh
+: deploy the app (image) on kubernetes
+upload_docker.sh
+: push the Docker Image to Docker Hub
 
 ## Setup the Environment
 
@@ -39,9 +46,9 @@ upload_docker.sh: push the Docker Image to Docker Hub
 
 ### Kubernetes Steps
 
-(1) Setup and Configure Docker locally<br>
+1. Setup and Configure Docker locally
 `apt install docker.io`<br>
-(2) Setup and Configure Kubernetes locally<br>
+2. Setup and Configure Kubernetes locally
 * Install kubctl<br>
 ```
     curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
@@ -65,6 +72,7 @@ upload_docker.sh: push the Docker Image to Docker Hub
     minikube start --vm-driver=virtualbox
     minikube status
 ```
+3. Create Flask app in Container
 
 
 * Create Flask app in Container
