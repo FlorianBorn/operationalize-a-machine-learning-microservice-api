@@ -1,29 +1,32 @@
 [![FlorianBorn](https://circleci.com/gh/FlorianBorn/operationalize-a-machine-learning-microservice-api.svg?style=svg)](https://app.circleci.com/gh/FlorianBorn/operationalize-a-machine-learning-microservice-api/pipelines)
 
-## Project Overview
+### Project Goal
 
-In this project, you will apply the skills you have acquired in this course to operationalize a Machine Learning Microservice API. 
-
-You are given a pre-trained, `sklearn` model that has been trained to predict housing prices in Boston according to several features, such as average rooms in a home and data about highway access, teacher-to-pupil ratios, and so on. You can read more about the data, which was initially taken from Kaggle, on [the data source site](https://www.kaggle.com/c/boston-housing). This project tests your ability to operationalize a Python flask app—in a provided file, `app.py`—that serves out predictions (inference) about housing prices through API calls. This project could be extended to any pre-trained machine learning model, such as those for image recognition and data labeling.
-
-### Project Tasks
-
-Your project goal is to operationalize this working, machine learning microservice using [kubernetes](https://kubernetes.io/), which is an open-source system for automating the management of containerized applications. In this project you will:
-* Test your project code using linting
-* Complete a Dockerfile to containerize this application
-* Deploy your containerized application using Docker and make a prediction
-* Improve the log statements in the source code for this application
-* Configure Kubernetes and create a Kubernetes cluster
-* Deploy a container using Kubernetes and make a prediction
-* Upload a complete Github repo with CircleCI to indicate that your code has been tested
-
-You can find a detailed [project rubric, here](https://review.udacity.com/#!/rubrics/2576/view).
-
-**The final implementation of the project will showcase your abilities to operationalize production microservices.**
-
+The project's goal is to operationalize this working, machine learning microservice using [kubernetes](https://kubernetes.io/)
+For this, the following steps are performed:
+* complete a given Dockerfile
+* lint the project's code and the Dockerfile
+* build a Docker Image from the Dockerfile
+* run the Docker Image and test if we can make predictions 
+* add logging statements to the web app (app.py)
+* upload the Docker iIage to Docker Hub
+* configure and run minik8s
+* test if we the service is working by making a predictions
+* integrate CircleCI
 ---
 
+### Files
+Dockerfile: a template for creating the Docker Image (containing the web service)
+Makefile: Contains the neccessary commands to setup the environment, install requirements, make tests and lint the project's files
+make_predictions.sh: use curl to make a dummy call to the app
+requirements.txt: contains all required python libraries
+run_docker.sh: build and run the image containing the app
+run_kubernetes.sh: deploy the app (image) on kubernetes
+upload_docker.sh: push the Docker Image to Docker Hub
+
 ## Setup the Environment
+
+
 
 * Create a virtualenv and activate it
 * Run `make install` to install the necessary dependencies
@@ -36,7 +39,32 @@ You can find a detailed [project rubric, here](https://review.udacity.com/#!/rub
 
 ### Kubernetes Steps
 
-* Setup and Configure Docker locally
-* Setup and Configure Kubernetes locally
+(1) Setup and Configure Docker locally
+`apt install docker.io`
+(2) Setup and Configure Kubernetes locally
+* Install kubctl
+`
+curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+chmod +x ./kubectl
+sudo mv ./kubectl /usr/local/bin/kubectl
+kubectl version --client
+`
+* Install a Hypervisor (here we will use VirtualBox)
+`
+sudo add-apt-repository multiverse && sudo apt-get update
+sudo apt install virtualbox
+`
+* Install Minikube
+`
+curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 && chmod +x minikube
+sudo mkdir -p /usr/local/bin/  # if not already existing
+sudo install minikube /usr/local/bin/
+* Start Minikube and test if it was installed correctly
+`
+minikube start --vm-driver=virtualbox
+minikube status
+`
+
+`
 * Create Flask app in Container
 * Run via kubectl
