@@ -43,28 +43,29 @@ upload_docker.sh: push the Docker Image to Docker Hub
 `apt install docker.io`<br>
 (2) Setup and Configure Kubernetes locally<br>
 * Install kubctl<br>
-`
+```
     curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
     chmod +x ./kubectl
     sudo mv ./kubectl /usr/local/bin/kubectl
     kubectl version --client
-`
+```
 * Install a Hypervisor (here we will use VirtualBox)<br>
-`
+```
     sudo add-apt-repository multiverse && sudo apt-get update
     sudo apt install virtualbox
-`
+```
 * Install Minikube<br>
-`
+```
     curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 && chmod +x minikube
     sudo mkdir -p /usr/local/bin/  # if not already existing
     sudo install minikube /usr/local/bin/
+```
 * Start Minikube and test if it was installed correctly
-`
+```
     minikube start --vm-driver=virtualbox
     minikube status
-`
+```
 
-`
+
 * Create Flask app in Container
 * Run via kubectl
