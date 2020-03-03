@@ -29,7 +29,7 @@ For this, the following steps are performed:
 2. Create a VM with Ubuntu 18.04
 3. in the VM's settings activate **Virtualize Intel VT-x/EPT or AMD-V/RVI**
 
-## Setup the Environment
+## Setup the Working Environment
 
 * Create a virtualenv and activate it
 * Run `make install` to install the necessary dependencies
