@@ -16,6 +16,7 @@ For this, the following steps are performed:
 ---
 
 ### Files
+**config.yml**: contains the CI pipeline
 **Dockerfile**: a template for creating the Docker Image (containing the web service)<br>
 **Makefile**: Contains the neccessary commands to setup the environment, install requirements, make tests and lint the project's files<br>
 **make_predictions.sh**: use curl to make a dummy call to the app<br>
