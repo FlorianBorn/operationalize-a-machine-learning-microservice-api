@@ -39,29 +39,29 @@ upload_docker.sh: push the Docker Image to Docker Hub
 
 ### Kubernetes Steps
 
-(1) Setup and Configure Docker locally
-`apt install docker.io`
-(2) Setup and Configure Kubernetes locally
-* Install kubctl
+(1) Setup and Configure Docker locally<br>
+`apt install docker.io`<br>
+(2) Setup and Configure Kubernetes locally<br>
+* Install kubctl<br>
 `
-curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
-chmod +x ./kubectl
-sudo mv ./kubectl /usr/local/bin/kubectl
-kubectl version --client
+curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl<br>
+chmod +x ./kubectl<br>
+sudo mv ./kubectl /usr/local/bin/kubectl<br>
+kubectl version --client<br>
 `
-* Install a Hypervisor (here we will use VirtualBox)
+* Install a Hypervisor (here we will use VirtualBox)<br>
 `
-sudo add-apt-repository multiverse && sudo apt-get update
-sudo apt install virtualbox
+sudo add-apt-repository multiverse && sudo apt-get update<br>
+sudo apt install virtualbox<br>
 `
-* Install Minikube
+* Install Minikube<br>
 `
-curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 && chmod +x minikube
-sudo mkdir -p /usr/local/bin/  # if not already existing
-sudo install minikube /usr/local/bin/
-* Start Minikube and test if it was installed correctly
+curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 && chmod +x minikube<br>
+sudo mkdir -p /usr/local/bin/  # if not already existing<br>
+sudo install minikube /usr/local/bin/<br>
+* Start Minikube and test if it was installed correctly<br>
 `
-minikube start --vm-driver=virtualbox
+minikube start --vm-driver=virtualbox<br>
 minikube status
 `
 
